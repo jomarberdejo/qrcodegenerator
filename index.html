@@ -16,10 +16,11 @@
   <script>
     var form = document.getElementById('qr-form');
     var qrCodeElement = document.getElementById('qr-code');
+    var dataInput= document.getElementById('data-input');
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-      var data = 'https://api-ninjas.com';
+      var data = `${dataInput.value}`;
       var fmt = 'png';
       $.ajax({
         method: 'GET',
@@ -29,8 +30,9 @@
         },
         contentType: 'application/json',
         success: function(result) {
-          // Display the QR code image
-          qrCodeElement.innerHTML = '<img src="' + result + '" alt="QR Code">';
+    // Display the QR code image
+     qrCodeElement.innerHTML = '<img src="data:image/png;base64,' + result + '" alt="QR Code">';
+     console.log(result)
         },
         error: function ajaxError(jqXHR) {
           console.error('Error: ', jqXHR.responseText);
