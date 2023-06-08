@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+  <form id="qr-form">
+    <label for="data-input">Enter data:</label>
+    <input type="text" id="data-input" required>
+    <button type="submit">Generate QR Code</button>
+  </form>
+  <div id="qr-code"></div>
+
+  <script>
+    var form = document.getElementById('qr-form');
+    var qrCodeElement = document.getElementById('qr-code');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var data = 'https://api-ninjas.com';
+      var fmt = 'png';
+      $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/qrcode?data=' + encodeURIComponent(data) + '&format=' + encodeURIComponent(fmt),
+        headers: {
+          'X-Api-Key': 'JR50CtTb5Bv031Rjk7libQ==eMq2WH7cURXA63vn'
+        },
+        contentType: 'application/json',
+        success: function(result) {
+          // Display the QR code image
+          qrCodeElement.innerHTML = '<img src="' + result + '" alt="QR Code">';
+        },
+        error: function ajaxError(jqXHR) {
+          console.error('Error: ', jqXHR.responseText);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
