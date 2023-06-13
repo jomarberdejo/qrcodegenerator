@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="output.css" rel="stylesheet">
+  <script defer src="index.js"></script>
 
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- TITLE -->
+
+    <main class="bg-white max-w-lg w-11/12 px-5 py-2 mt-16 mx-auto ">
+    <div>
+        <h1 class="text-center my-8 text-xl font-bold" >QR Code Generator</h1>
+    </div>
+
+  <form id="qr-form">
+    <div>
+        <div class="flex gap-4 justify-center my-10 items-center">
+            <label class="text-sm" for="data-input">Enter Data: </label>
+            <input type="text" class="text-sm px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-sky-500 block w-2/3 rounded-md sm:text-sm focus:ring-1" placeholder="Enter Data to Generate QR Code" / required id="data-input" >
+        </div>
+
+        <div class="flex justify-center my-8">
+            <button class="border border-blue-500 bg-blue-400 shadow-lg shadow-indigo-500/40 p-1 rounded text-base type="submit">Generate QR Code</button>
+        </div>
+
+
+    </div>
+    
+   
+ 
+
+  </form>
+
+  <div id="qr-code" class="flex justify-center my-8 max-w-md h-72">
+
+  </div>
+
+</main>
+
+</body>
+</html>
